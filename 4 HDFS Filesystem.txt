@@ -1,0 +1,121 @@
+						www.cfamily.com
+Hadoop Foundation
+=================
+HDFS Filesystem:-
+===============
+What is HDFS Filesystem?
+=======================
+--> HDFS means "Hadoop DIstributed Filesystem"
+--> It supports unlimited storage and 
+--> It supports parallel processing.
+--> It is a Userspace Filesystem.
+
+What is the difference between Operating System Filesystem(Local Filesystem)
+and HDFS Filesystem?
+==========================================================================
+--> Operating System Filesystem starts as part operating system process 
+--> We can increase or we cannot decrease size of Operating System filesize
+--> But HDFS is a Userspace Filesystem, it will after operating system 
+    started, It is a user process so we can increase or decrease hdfs 
+	filesystem size
+
+What is Block?
+=============
+--> Is a Chunk or peace of data.
+--> When client loads data into hdfs filesystem, data divided into multiple
+    blocks
+--> each block placed in different machine.
+--> The default block size is 
+			until hadoop 1.x -- 64MB
+			from hadoop 2.x -- 128MB
+--> This is configurable, we can increase or we can decrease block size.			
+    in hdfs-site.xml
+	name:dfs.blocksize
+	value:
+--> We can increase as multiples of block size.
+    64+64+64+64+64
+	128+128+128+128
+	
+--> In Operating System block size is 4KB
+    Latest Block 8KB
+
+What is advantage of large block size?
+-------------------------------------
+--> reading/seeking time is very faster.	
+
+What is Replication or What is Replication-Factor?
+=================================================
+--> Replication -- duplicate copy of block
+--> Replication-Factor -- how many duplicate copies of block
+--> By default hadoop create "3" replicas.
+--> we can increase or decrease replication-factor.
+    In hdfs-site.xml 
+	name: fs.replication	
+	value:3
+--> The main advantage of replication is we can solve fault-tolerance
+    even we can access hdfs filesystem if any machine down or fail or crash.
+	
+Under Replication:-
+=================
+--> The blocks under < Replication-Factor is called "Under Replicated Blocks"
+--> Assume DataNode 3 is failed, blocks under failed node comes into 
+    "Under Replication"
+--> NameNode maintains underplicated blocks information in NameNode machine.
+--> Then NameNode will ask DataNode machines to replicate "underplicated
+    blocks"
+--> Assume DataNode1 accepted to replicate "b3" and DataNode2 accepted to 
+    replicate block1.
+--> At any point of time NameNode tries to maintain replication-factor.	
+
+Over Replication:-
+================
+--> The blocks which are > replication is called "Over Replicated" blocks.
+--> NameNode will ask 
+    For Block1 -- DataNode1,2,3 and 5 to remove block1
+	For Block3 -- DataNode1,3,4 and 5 to remove block1
+	Assume DataNode 3 accepted to remove Block 1, 3
+--> At any point of time NameNode tries to maintain replication-factor.	
+
+HDFS Write Flow:-
+===============
+--> When Client Wants write file into HDFS Filesystem client will perform
+    HDFS Write Flow.
+--> First Client Communicates with NameNode and gets the blocks and DataNodes
+    information and writes into HDFS Filesystem.	
+	
+HDFS Read Flow:-
+==============
+--> When Client to read HDFS Filesystem
+    May HDFS CLI Command
+	    MapReduce,
+		Pig
+		Hive
+		etc..
+--> First Clinet Communicates with NameNode and gets Filesystem metadata
+--> NameNode return Metadata like 
+    f1--b1--1,3,5
+    f1--b2--2,4,6
+    f1--b3--3,4,5   
+--> Client reads
+      b1 from DataNode1
+      b2 from DataNode2
+      b3 from DataNode3	  
+	
+By
+Akkem Sreenivasulu
+www.cfamily.com 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

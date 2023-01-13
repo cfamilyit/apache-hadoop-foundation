@@ -1,0 +1,94 @@
+Apache Hadoop Foundation Videos Links (V1)
+
+What is Hadoop
+https://youtu.be/QuHPlmENqPU
+
+What is Bigdata
+https://youtu.be/5JmwRtrTnBo
+
+Different Vendors of Hadoop
+https://youtu.be/lRV6AYNmBD4
+
+Features of Hadoop
+https://youtu.be/9PUjbgtd4WY
+
+Apache Hadoop Architecture
+https://youtu.be/HMHVDa8g4zg
+
+HDFS Architecture
+https://youtu.be/JcWufWOIj54
+
+MapReduce Architecture
+https://youtu.be/-jidaHQVAc4
+
+Hadoop Components Introduction
+https://youtu.be/T4fGofkWGNY
+
+NameNode in Apache Hadoop
+https://youtu.be/PeHnHpwDQp0
+
+SecondaryNameNode in Apache Hadoop
+https://youtu.be/MBwGWcvNa2g
+
+DataNode in Apache Hadoop
+https://youtu.be/so8d_tLfiSM
+
+ResourceManager in Apache Hadoop
+https://youtu.be/ykXrU0gIQs4
+
+NodeManager in Apache Hadoop
+https://youtu.be/1w9Xc_N8u8k
+
+HDFS Client in Apache Hadoop
+https://youtu.be/TR1aWUd3rJE
+
+HDFS Filesystem introduction in Apache Hadoop
+https://youtu.be/WfmTS_f3KwA
+
+HDFS Block in Apache Hadoop
+https://youtu.be/N7TaX0aRV0k
+
+HDFS Replication in Apache Hadoop
+https://youtu.be/KBmp2FeuYlI
+
+HDFS Under Replication in Apache Hadoop
+https://youtu.be/lyP-AykKmGA
+
+HDFS Over Replication in Apache Hadoop
+https://youtu.be/QAMEvEVRPRQ
+
+HDFS Write Flow in Apache Hadoop
+https://youtu.be/_HC75dVnNM4
+
+HDFS Read Flow in Apache Hadoop
+https://youtu.be/lLgN8sAB_d0
+
+Hadoop Installation Types
+https://youtu.be/F5jJQ1T6Z7I
+
+Hadoop 2 Installation Introduction | Apache Hadoop pSudo Distribution Mode Installation
+https://youtu.be/2f3lLwxIqug
+
+Hadoop 2 Installation Introduction Part 2 | Apache Hadoop pSudo Distribution Mode Installation
+https://youtu.be/1rYvXNzSZmQ
+
+Hadoop Pre-Installation - Java 8 Installation | Apache Hadoop pSudo Distribution Mode Installation
+https://youtu.be/KgVZGu5Mr7I
+
+Hadoop Pre-Installation - Password-less SSH | Apache Hadoop pSudo Distribution Mode Installation
+https://youtu.be/Tvrgu8o1DYM
+
+Apache Hadoop 2 Installation steps part 1  | Apache Hadoop pSudo Distribution Mode Installation
+https://youtu.be/Inx9Vb5g_ak
+
+Apache Hadoop Installation steps part 2 | Apache Hadoop pSudo Distribution Mode Installation
+https://youtu.be/tQDqR3mWmQo
+
+Apache Hadoop Post Installation | Apache Hadoop pSudo Distribution Mode Installation
+https://youtu.be/xOhRxSnYnfY
+
+Apache Hadoop Accessing NameNode | Apache Hadoop pSudo Distribution Mode Installation
+https://youtu.be/u8rSCtIKtbo
+
+Complete Apache Hadoop Foundation by Sreenivasulu Akkem | Master Apache Hadoop by Sreenivasulu Akkem
+https://youtu.be/-B-Re9Wl1BM

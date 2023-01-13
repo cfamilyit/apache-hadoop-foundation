@@ -1,0 +1,119 @@
+						www.cfamily.com
+Hadoop Foundation
+=================
+Hadoop Components:-
+=================
+--> There are 5 important components. They are:
+1. NameNode
+2. SecondaryNameNode
+3. DataNode
+4. Until Hadoop 1.x -- "JobTracker", From Hadoop 2.x -- "ResourceManager"
+5. Until Hadoop 1.x -- "TaskTracker", From Hadoop 2.x -- "NodeManager"
+6. Client 
+
+--> These 5 Daemons plays very important role in hadoop.
+--> Daemon -- It is a Background process.
+
+NameNode:-
+========
+--> NameNode is a HDFS Daemon 
+--> It is a Master Daemon in HDFS.
+--> Client Communicates with "NameNode" to store the data.
+--> When NameNode gets Storage request, it will read 
+     hdfs-site.xml for block-size,replication-factor.
+	               default block size 128MB
+				   default-replication-factor is "3"
+     slaves for understanding where is DataNode's.
+     proxmity algorithm or rackawareness algorithm to understands "racks"
+     bandwidth of each machines.
+--> Then it will prepare metadata
+--> Then it will return metadata to client.
+
+
+What is medata?
+--------------
+--> data about data.
+--> It has file to block to DataNode's mapping	 
+
+SecondaryNameNode:-
+=================
+--> It is not a backup node for NameNode
+--> It is HDFS Deamon.
+--> It is a Master Daemon in HDFS Architecture.
+--> It is also called "CheckpointingNode".
+--> It will perform checkpoing operation.
+--> Merging fsimage and editlog is called "Checkpoing".
+--> Once checkpont is completed it will erase edit log file.
+
+When Checkpoing is happen?
+--------------------------
+There are two scenarios. They are:
+1. edit log file size  --   1 hour by default
+2. thresh-hold time/ no.of entries --  1 million txs by default
+
+Without SecondaryNameNode, NameNode can perform Checkpoing but it is overhead
+on NameNode.
+
+DataNode:-
+========
+--> Is a HDFS Daemon
+--> It is a slave/worker daemon.
+--> We can take 'n' no.of DataNode's.
+--> The main purpose of DataNode is to store/hold the data.
+--> It updates It master node saying "i am active and i have so and so 
+    blocks" this concept is called "heart beat signal".
+	
+ResourceManager:-
+===============	
+--> Is a MapReduce Daemon
+--> It is a YARN Daemon(MR 2 Architecture, Hadoop 2.x)
+--> ResourceManager recieves processing request may be
+    MapReduce
+	Pig
+	Hive
+	Sqoop
+	Spark
+	ect..
+--> Once ResourceManager recieves processing request, it will communicate
+    with NameNode for details of client application required file.
+--> Once ResourceManager recieves response form NameNode then based on the
+    data and location it will assign tasks to its slaves/workers.
+
+NodeManager:-
+===========
+--> Is a Slave/Worker Daemon in MapReduce Architecture.
+--> The responsibility of NodeManager is to process client request.
+--> client request may be
+    MapReduce
+	Pig
+	Hive
+	Sqoop
+	Spark
+	ect..
+--> Once NodeManager recieves processing request assigned by its master
+    then it will start processing.
+--> NodeManager update status to it's master saying " I am active, i am 
+    executing so and so request or task and percentage of completion"
+	This process is heart beat singal in mapreduce.
+   	
+Client:-
+======	
+--> There are two types of clients. They are:
+1. HDFS CLients
+2. Processing Clients/Applications
+
+By
+Akkem Sreenivasulu
+www.cfamily.com 
+
+
+
+
+
+
+
+
+
+
+
+

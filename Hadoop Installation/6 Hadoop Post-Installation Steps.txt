@@ -1,0 +1,114 @@
+						www.cfamily.com
+Hadoop Development
+==================
+Hadoop Installation
+===================
+Hadoop Single Node Installation
+===============================
+Post-Installation Steps:-
+=======================
+1. Configure Hadoop 
+    a) core-site.xml
+	b) hdfs-site.xml
+	c) mapred-site.xml
+	d) yarn-site.xml 
+
+2. Format NameNode
+
+Configure Hadoop:-
+================
+a) core-site.xml
+b) hdfs-site.xml
+c) mapred-site.xml
+d) yarn-site.xml 						
+
+$ cd /opt/hadoop
+$ ls
+$ cd etc/
+$ ls
+hadoop
+$ cd hadoop/
+$ ls
+capacity-scheduler.xml            httpfs-log4j.properties     mapred-site.xml
+configuration.xsl                 httpfs-signature.secret     shellprofile.d
+container-executor.cfg            httpfs-site.xml             ssl-client.xml.example
+core-site.xml                     kms-acls.xml                ssl-server.xml.example
+hadoop-env.cmd                    kms-env.sh                  user_ec_policies.xml.template
+hadoop-env.sh                     kms-log4j.properties        workers
+hadoop-metrics2.properties        kms-site.xml                yarn-env.cmd
+hadoop-policy.xml                 log4j.properties            yarn-env.sh
+hadoop-user-functions.sh.example  mapred-env.cmd              yarnservice-log4j.properties
+hdfs-site.xml                     mapred-env.sh               yarn-site.xml
+httpfs-env.sh                     mapred-queues.xml.template
+
+core-site.xml:-
+=============
+--> We will specify filesystem type, default is local filesystem
+--> NameNode information
+
+$sudo nano core-site.xml 
+<configuration>
+        <property>
+            <name>fs.default.name</name>
+            <value>hdfs://localhost:9000</value>
+        </property>
+</configuration>
+
+hdfs-site.xml 
+============
+--> we will specify 
+    replication-factor -- default is "3"
+	block-size -- default is -- 128MB
+$sudo nano hdfs-site.xml 
+<configuration>
+     <property>
+            <name>dfs.replication</name>
+            <value>1</value>
+    </property>
+</configuration>
+
+mapred-site.xml 
+===============
+--> Until Hadoop 1.x MR1 Architecture (JobTacker and TaskTracker)
+--> From Hadoop 2.x MR2 Architecture(YARN)(ResourceManager and NodeManager)
+$sudo nano mapred-site.xml
+<configuration>
+    <property>
+            <name>mapreduce.framework.name</name>
+            <value>yarn</value>
+    </property>
+</configuration>
+
+yarn-site.xml:-
+=============
+--> We will Specify 
+	Where is ResourceManager -- Here Local System
+	User Level Permissions
+	
+$sudo nano yarn-site.xml 
+<configuration>
+    <property>
+            <name>yarn.acl.enable</name>
+            <value>0</value>
+    </property>
+
+    <property>
+            <name>yarn.resourcemanager.hostname</name>
+            <value>localhost</value>
+    </property>
+
+    <property>
+            <name>yarn.nodemanager.aux-services</name>
+            <value>mapreduce_shuffle</value>
+    </property>
+</configuration>
+
+Format NameNode:-
+===============
+--> TO update all configuration information to NameNode.
+#hdfs namenode -format
+
+
+By 
+Akkem Sreenivasulu
+www.cfamily.com

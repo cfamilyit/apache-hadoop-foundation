@@ -1,0 +1,66 @@
+						www.cfamily.com
+Hadoop Development
+==================
+Hadoop Installation
+===================
+Hadoop Single Node Installation
+===============================
+Hadoop Installation Steps:-
+=========================
+Step1: Download Hadoop 
+Step2: Install Hadoop
+Step3: Set HADOOP_HOME and PATH variable
+Step4: Verify Hadoop is Installed or not 
+
+Download Hadoop:-
+===============
+--> upto now Hadoop has 3 versions. They are:
+1. Hadoop 1.x -- Outdated
+2. Hadoop 2.x -- Industry using this versions
+3. Hadoop 3.x -- R&D Phase
+$cd /opt 
+$sudo wget http://apachemirror.wuchna.com/hadoop/common/stable2/hadoop-3.2.1.tar.gz
+
+Install Hadoop:-
+==============
+a) Extract tar file 
+$sudo tar -xvzf hadoop-3.2.1.tar.gz
+
+b) rename (optional)
+$sudo mv hadoop-3.2.1 hadoop 
+
+c) delete tar file (optional)
+$ sudo rm -rf hadoop-3.2.1.tar.gz
+
+Set HADOOP_HOME and PATH variable
+---------------------------------
+$sudo nano ~/.bashrc
+export HADOOP_HOME=/opt/hadoop
+export PATH=$PATH:$HADOOP_HOME/bin:$HADOOP_HOME/sbin
+
+restart ~/.bashrc 
+-----------------
+$ source ~/.bashrc
+
+Verify Hadoop is Installed or not:-
+---------------------------------
+$hadoop version
+
+Once this step is complete we can say "Standalone Mode or Local Mode" 
+installation is completed.
+
+By 
+Akkem Sreenivasulu
+www.cfamily.com
+
+
+
+
+
+
+
+
+
+
+
+

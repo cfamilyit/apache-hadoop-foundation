@@ -1,0 +1,382 @@
+					www.cfamily.com
+Hadoop Development 
+==================
+Hadoop Installation
+===================
+Hadoop Installation Types:-
+=========================
+--> There are 3ways to install hadoop. They are:
+1. Standalone/Local Mode
+2. pSudo Distribution Mode 
+3. Fully Distribution Mode 
+
+Standalone/Local Mode:-
+=====================
+--> All Daemons runs on Single Machine and on Single JVM.
+--> It uses Local Filesystem but not HDFS Filesystem.
+--> It is not Distributed.
+--> It is Only Development not for testing and not for production.
+--> Main Advantage of Standalone/Local Mode is Debugging purpose.
+
+pSudo Distribution Mode
+=======================
+--> In this mode all Daemons runs on Single Machine but on Multiple JVM's.
+--> It uses HDFS Filesystem.
+--> It is Distributed.
+--> It is for Development but not for Testing and not for Production purpose.
+
+Fully Distribution Mode
+=======================
+--> In this mode different deamons runs on different machines and different 
+    JVM's.
+--> It is uses HDFS Filesystem
+--> It is for Development, Testing and Production.
+--> It is Highly recomended to take all master daemons on separate machines
+    both worker daemons on same machines, we will take multiple works.
+
+Hadoop Installation Introduction
+================================
+Note:- Operating System should be installed.
+--> There are 3 steps involves in Hadoop Installation
+1. Pre-Installation Steps.
+2. Installation Steps.
+3. Post-Installation Steps.
+
+Pre-Installation Steps:-
+======================
+1) We Install Java (Recomended is Java 8)
+2) Passwordless SSH
+
+Installation Steps:-
+=================
+1) We will Install Hadoop 
+2) We will set HADOOP_HOME and PATH variable
+3) We will verify Hadoop is installed or not 
+
+Post-Installation Steps:-
+=======================
+1. Confiuring Hadoop configuration files
+2. We will Format NameNode
+
+Hadoop Installation
+===================
+Hadoop Single Node Installation
+===============================
+Standalone Mode/Local Mode & pSudo Distribution Mode:
+====================================================
+Note:-
+----
+--> Operating System should be installed 
+--> We have already created Virtual Machine with CentOS 7
+--> We have users 
+user1:
+un:root 
+pwd:cfamily 
+
+user2:
+un:cfamily   (sudoer user)
+pwd:cfamily 
+
+--> There are Three Steps Involves in Hadoop Standalone/Local Mode or 
+    pSudo Distribution Mode Installation.They are:
+1. Pre-Installation Steps 
+   a) Install Java (Recomended is Java 8)
+   b) Setup Passwordless SSH 
+2. Installation Steps 
+   a) Download Latest Hadoop 
+   b) Install Hadoop 
+   c) Set HADOOP_HOME and PATH Variable
+   d) Verify Hadoop is installed or    
+Once Step1 and Step2 Completed we can say "Standalone/Local Mode" 
+installation is completed.
+
+3. Post-Installation Steps 
+   a) Confuration
+      core-site.xml 
+	  hdfs-site.xml
+	  mapred-site.xml 
+	  yarn-site.xml 
+    b) format NameNode
+Step 1,2,3 is completed then we can "pSudo Distribution Mode" is completed.	
+
+Step1: Pre-Installation Steps 
+=============================
+1) Install Java (Recomended is Java 8)
+2) Setup Passwordless SSH 
+
+Install Java(Recomended is Java 8)
+----------------------------------
+1) Download Java 8 .rpm file 
+2) Install Java 8
+3) Set JAVA_HOME and PATH variable 
+4) Verify Java is Installed or not 
+
+Download Java 8 .rpm file
+-------------------------
+$cd /opt
+$sudo wget -c --header "Cookie: oraclelicense=accept-securebackup-cookie" http://download.oracle.com/otn-pub/java/jdk/8u131-b11/d54c1d3a095b4ff2b6607d096fa80163/jdk-8u131-linux-x64.rpm 
+
+Install Java 8
+==============
+$cd /opt 
+$sudo yum install rpm_file 
+$sudo yum install jdk-8u131-linux-x64.rpm -y
+
+Installation path: /usr/java/jdk1.8.0_131
+
+Set JAVA_HOME and PATH variable:-
+================================
+Why JAVA_HOME?
+-------------
+--> Many software which implmented using Java refers JAVA_HOME to their 
+softwares like maven,hadoop, gradle, etc..
+
+JAVA_HOME = /usr/java/jdk1.8.0_131
+
+Why PATH?
+--------
+JAVA_HOME\bin contain java commands to make all those commands available 
+anywhere in our system.
+
+PATH = /usr/java/jdk1.8.0_131/bin 
+
+Where do we set JAVA_HOME and PATH variable?
+--------------------------------------------
+--> In Linux or Unix for every user there are some profile file like 
+    .bashrc, .bash_profile etc.
+$sudo nano ~/.bashrc 
+#JAVA_HOME
+export JAVA_HOME=/usr/java/jdk1.8.0_131
+export PATH=$PATH:$JAVA_HOME/bin 
+
+restart .bashrc file 
+--------------------
+$source ~/.bashrc
+
+Verify Java is Installed or not:-
+-------------------------------
+$java -version 
+$java 
+$javac 
+	
+
+Setup Passwordless SSH:-
+======================
+--> SSH -- Secure Shell
+--> By using SSH we can get any linux machine shell.
+--> SSH requires password
+    un:
+	pwd:
+Why we are setuping Passwordless SSH?
+-------------------------------------	
+--> Sometimes One  Master Daemon communicates with other other Master Daemon
+--> Master Daemons Communicates with Worker Daemons
+--> Slave/Worker Daemons communicates with Master Daemons
+
+--> In all Above situations Master/Worker Daemons uses SSH
+--> To make all daemons can communicate with each other without pssword.
+
+SSH with Password:
+-----------------
+$ ssh localhost
+cfamily@localhost's password:
+[cfamily@cfamily ~]$ exit
+
+Passwordless Configuration:
+--------------------------
+$ssh-keygen -t rsa
+$sudo cat ~/.ssh/id_rsa.pub >> ~/.ssh/authorized_keys
+$sudo chmod og-wx ~/.ssh/authorized_keys
+
+verify:
+------
+$ ssh localhost
+Last login: Thu Jun 11 09:18:03 2020 from localhost
+[cfamily@cfamily ~]$ exit
+
+Hadoop Installation Steps:-
+=========================
+Step1: Download Hadoop 
+Step2: Install Hadoop
+Step3: Set HADOOP_HOME and PATH variable
+Step4: Verify Hadoop is Installed or not 
+
+Note:- As part Hadoop Installation we are going to Install Hadoop 2.x 
+
+Hadoop 1.x  -- Out dated 
+Hadoop 2.x  -- Currently Industry using Hadoop 2.x 
+Hadoop 3.x  -- R&D 
+
+Download Hadoop 
+---------------
+--> Open any web browser and find Hadoop 2.x link 
+https://mirrors.estointernet.in/apache/hadoop/common/hadoop-2.9.2/hadoop-2.9.2.tar.gz
+
+$cd /opt 
+$sudo wget https://mirrors.estointernet.in/apache/hadoop/common/hadoop-2.9.2/hadoop-2.9.2.tar.gz
+
+Install Hadoop
+--------------
+a) Extract tar file 
+b) rename (optional)
+c) remove tar file (optional)
+d) change hadoop directory permissions.
+$ sudo tar -xvzf hadoop-2.9.2.tar.gz
+[cfamily@cfamily opt]$ sudo mv hadoop-2.9.2 hadoop
+[cfamily@cfamily opt]$ ls
+hadoop  hadoop-2.9.2.tar.gz
+[cfamily@cfamily opt]$ sudo rm -rf hadoop-2.9.2.tar.gz
+[cfamily@cfamily opt]$ ls -l
+total 0
+drwxr-xr-x. 9 501 dialout 149 Nov 13  2018 hadoop
+[cfamily@cfamily opt]$ sudo chmod -R 777 hadoop
+[cfamily@cfamily opt]$ ls -l
+total 0
+drwxrwxrwx. 9 501 dialout 149 Nov 13  2018 hadoop
+
+Set HADOOP_HOME and PATH variable
+---------------------------------
+HADOOP_HOME = /opt/hadoop
+PATH = $PATH:/opt/hadoop/bin:/opt/hadoop/sbin 
+
+$ cd bin/
+[cfamily@cfamily bin]$ ls
+container-executor  hadoop.cmd  hdfs.cmd  mapred.cmd  test-container-executor  yarn.cmd
+hadoop              hdfs        mapred    rcc         yarn
+[cfamily@cfamily bin]$ cd ..
+[cfamily@cfamily hadoop]$ cd sbin/
+[cfamily@cfamily sbin]$ ls
+distribute-exclude.sh  mr-jobhistory-daemon.sh  start-secure-dns.sh  stop-secure-dns.sh
+FederationStateStore   refresh-namenodes.sh     start-yarn.cmd       stop-yarn.cmd
+hadoop-daemon.sh       slaves.sh                start-yarn.sh        stop-yarn.sh
+hadoop-daemons.sh      start-all.cmd            stop-all.cmd         yarn-daemon.sh
+hdfs-config.cmd        start-all.sh             stop-all.sh          yarn-daemons.sh
+hdfs-config.sh         start-balancer.sh        stop-balancer.sh
+httpfs.sh              start-dfs.cmd            stop-dfs.cmd
+kms.sh                 start-dfs.sh             stop-dfs.sh
+[cfamily@cfamily sbin]$ cd ..
+[cfamily@cfamily hadoop]$ sudo nano ~/.bashrc
+[sudo] password for cfamily:
+#HADOOP_HOME
+export HADOOP_HOME=/opt/hadoop
+export PATH=$PATH:$HADOOP_HOME/bin:$HADOOP_HOME/sbin
+
+[cfamily@cfamily hadoop]$ source ~/.bashrc
+
+Verify Hadoop is Installed or not
+---------------------------------
+$ hadoop version
+Hadoop 2.9.2
+
+Post-Installation Steps:-
+=======================
+1. Configure Hadoop 
+    a) core-site.xml
+	b) hdfs-site.xml
+	c) mapred-site.xml
+	d) yarn-site.xml 
+
+2. Format NameNode
+
+Configure Hadoop:-
+================
+a) core-site.xml
+b) hdfs-site.xml
+c) mapred-site.xml
+d) yarn-site.xml 						
+
+$ cd /opt/hadoop
+$ ls
+$ cd etc/
+$ ls
+hadoop
+$ cd hadoop/
+$ ls
+capacity-scheduler.xml            httpfs-log4j.properties     mapred-site.xml
+configuration.xsl                 httpfs-signature.secret     shellprofile.d
+container-executor.cfg            httpfs-site.xml             ssl-client.xml.example
+core-site.xml                     kms-acls.xml                ssl-server.xml.example
+hadoop-env.cmd                    kms-env.sh                  user_ec_policies.xml.template
+hadoop-env.sh                     kms-log4j.properties        workers
+hadoop-metrics2.properties        kms-site.xml                yarn-env.cmd
+hadoop-policy.xml                 log4j.properties            yarn-env.sh
+hadoop-user-functions.sh.example  mapred-env.cmd              yarnservice-log4j.properties
+hdfs-site.xml                     mapred-env.sh               yarn-site.xml
+httpfs-env.sh                     mapred-queues.xml.template
+
+core-site.xml:-
+=============
+--> We will specify filesystem type, default is local filesystem
+--> NameNode information
+
+$sudo nano core-site.xml 
+<configuration>
+        <property>
+            <name>fs.default.name</name>
+            <value>hdfs://localhost:9000</value>
+        </property>
+</configuration>
+
+hdfs-site.xml 
+============
+--> we will specify 
+    replication-factor -- default is "3"
+	block-size -- default is -- 128MB
+$sudo nano hdfs-site.xml 
+<configuration>
+     <property>
+            <name>dfs.replication</name>
+            <value>1</value>
+    </property>
+</configuration>
+
+mapred-site.xml 
+===============
+--> Until Hadoop 1.x MR1 Architecture (JobTacker and TaskTracker)
+--> From Hadoop 2.x MR2 Architecture(YARN)(ResourceManager and NodeManager)
+$sudo nano mapred-site.xml
+<configuration>
+    <property>
+            <name>mapreduce.framework.name</name>
+            <value>yarn</value>
+    </property>
+</configuration>
+
+yarn-site.xml:-
+=============
+--> We will Specify 
+	Where is ResourceManager -- Here Local System
+	User Level Permissions
+	
+$sudo nano yarn-site.xml 
+<configuration>
+    <property>
+            <name>yarn.acl.enable</name>
+            <value>0</value>
+    </property>
+
+    <property>
+            <name>yarn.resourcemanager.hostname</name>
+            <value>localhost</value>
+    </property>
+
+    <property>
+            <name>yarn.nodemanager.aux-services</name>
+            <value>mapreduce_shuffle</value>
+    </property>
+</configuration>
+
+Format NameNode:-
+===============
+--> TO update all configuration information to NameNode.
+#hdfs namenode -format
+
+
+Accessing NameNode
+==================
+
+
+By
+Akkem Sreenivasulu
+www.cfamily.com
+

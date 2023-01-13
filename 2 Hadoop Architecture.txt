@@ -1,0 +1,79 @@
+						www.cfamily.com
+Hadoop Foundation
+=================
+Hadoop Architecture:-
+===================
+Master/Slave Architecture:
+-------------------------
+--> Hadoop follows Master/Slave Architecture.
+--> In Hadoop Architecture, There are 5 Daemons involves. They are:
+1. NameNode 
+2. SecondaryNameNode
+3. DataNode 
+4. Until Hadoop 1.x "JobTracker", From Hadoop 2.x "ResourceManager"
+5. Until Hadoop 1.x "TaskTracker", From Hadoop 2.x "NodeManager" 
+
+What is Daemon?
+--------------
+--> A Daemon process, it always runs in the background.
+--> Daemon -- It is a Java Program.
+
+Master Daemons:
+==============
+1. NameNode
+2. SecondaryNameNode
+3. ResourceManager
+
+Slave Daemons:
+=============
+1. DataNode
+2. NodeManager
+
+--> It is Highly Recomended to take master daemons on separate machines.
+--> It is Higly Recomended to take both slave daemons on same machines.
+    we will take multiple slaves.
+	
+HDFS Architecture:-
+=================
+--> Is reponsible for storage.
+HDFS Daemons:
+-----------
+1. NameNode	
+2. SecondaryNameNode
+3. DataNode
+
+Master Daemons:
+--------------
+1. NameNode
+2. SecondaryNameNode
+
+Slave Daemons:
+-------------
+1. DataNode
+
+MapReduce Architecture:-
+======================
+--> is responsible for processing.
+--> Two MapReduce Architecture. They are:
+Until Hadoop 1.x -- MR1 Architecture
+-----------------------------------
+1. JobTracker
+2. TaskTracker
+
+From Hadoop 2.x -- MR2 Architecture (YARN Architecture)
+-------------------------------------------------------
+1. ResourceManager
+2. NodeManager
+
+Master Daemon:
+-------------
+1. ResourceManager
+
+Slave Daemons:
+-------------
+1. NodeManager
+
+
+By
+Akkem Sreenivasulu
+www.cfamily.com 

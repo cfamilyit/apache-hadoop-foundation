@@ -1,0 +1,181 @@
+						www.cfamily.com
+Hadoop Foundation
+=================
+Hadoop Introduction:-
+===================
+What is Hadoop?
+==============
+--> Is a Bigdata Framework.
+--> It has Storage and Processing.
+--> Stroage we use "HDFS Filesystem"
+--> Processing we have "MapReduce, Pig, Hive, etc.."
+--> Hadoop is implmented using "Java Language".
+--> Hadoop is Implmented by "Dough Cutting"
+--> Vendor of Hadoop is "Apache".
+--> Hadoop is a Opensource and Free.
+
+What is Bigdata?
+===============
+--> Huge volumes, which cannot be stored and processed using traditional 
+    technologies like RDBMS and Application Programming with short time.
+RDBMS:	
+--> RDBMS does not support limited storage	
+--> RDBMS filesystem is not distributed filesystem 
+
+Classification of Bigdata:-
+-------------------------
+--> Bigdata can be classified into 3 Categories. They are:
+1. Structured Data(Hadoop and RDBMS)
+2. Semi-Structured(Hadoop, Most of RDBMS not Supports)
+3. Un-Structured (Hadoop, Most of RDBMS not supports)
+
+Structured Data:-
+---------------
+--> Data has proper format associated it.
+E.g:- Tables(Rows and Columns)
+RDBMS and Hadoop Supports Structured data.
+
+Semi-Structured:
+---------------
+--> Data does not have proper format associated with it.
+E.g:-XML,JSON,CSV, etc..
+Most of RDBMS not supports but Hadoop Supports Semi-Structured data.
+
+Un-Structured Data:-
+==================
+--> Data Does not have any format associated with it.
+E.g:- Log Files, Chating Data, Reviews, Videos, Audios, Images, etc..
+Most of RDBMS not supports but Hadoop Supports Un-Structured data.
+
+Characterstics of Bigdata:-
+-------------------------
+--> There are mainly 3 Characterstics. They are:
+1. Volume 
+2. Velocity
+3. Variety
+
+Volume 
+-----
+-- Huge Volumes of Data 
+-- Hadoop Supports unlimited data.
+-- There is no limit in hadoop cluster.
+-- RDBMS does not support unlimited storage because there is limit in RDBMS 
+   cluster.
+   
+Velocity:-
+-------
+-- How much speed data is growing is called Velocity.
+-- Facebook generate 200TB data every data.
+-- In Youtube each minute 48hrs video is uploading
+--> Twiter processing 400 millions twits 
+--> etc..
+
+Variety:-
+-------
+--> Structured, Semi-Structured and Un-Structured
+--> Hadoop supports all kinds data.
+--> RDBMS supports only Structured.
+
+Challenges Associated with Bigdata?
+==================================
+--> Storage: There is no technology which stores unlimited data.
+--> Processing : There is Application programming which can process huge 
+    volumes data in very short time or faster.
+	
+--> Hadoop solved bigdata problems using 
+    HDFS and MapReduce
+--> HDFS Stores unlimited stored. There is no limit in HDFS Filesystem.	
+    It is Distributed Filesystem
+--> MapReduce is a Algorithm, we can implment MapReduce with Java, Python,
+    etc..	
+	MapReduce is a Parallel Processing architecture.
+	
+Different Vendors of Hadoop:
+---------------------------
+--> Hadoop is a opensource and free.
+--> Implmented using Java Language.
+--> Hadoop is implemented by "Dough Cutting"
+    based on two papers published by Google.
+    GFS -- Google Filesystem
+    MapReduce
+--> Google implmented Bigdata using Python 
+--> Dough Cutting implmented Hadoop using "Java Language".
+--> Opensource -- They give complete source
+--> Based on this source code many vendors implmented hadoop	
+    Cloudera -- CDH (Cloudera Distribution Hadoop)
+	Hortonworks -- HDP (Hadoop/Hortonwork Distributed Platform)
+	MapR -- MapR Hadoop 
+	IBM -- InfoShpare
+	Microsoft -- HDInsights
+	Amazon -- EMR(Elastic MapReduce)
+	etc..
+	
+Features of Hadoop:-
+==================	
+1. Cost Effective:
+=================
+--> Hadoop Software is Free
+--> Hadoop works on Commodity Hardware
+    PC < Commodity < Server Hardware (HighEnd or Certified Hardware)
+
+2. Large Cluster of Nodes:
+=========================
+--> RDBMS has a limitation in cluster.
+--> But Hadoop, there is no limitation
+--> We can take 'n' no.of machines in hadoop cluster.	
+
+3. Distributed Data:
+===================
+--> Hadoop uses "HDFS Filesystem".
+--> It is a Distributed Filesystem 
+--> Data divided into multiple blocks and each block placed in different
+    machine.
+	
+4. Parallel Processing:
+======================
+--> MapReduce, Pig, Hive etc.. processing frameworks
+--> Hadoop process data parallely
+
+5. Automatic Failover Management:
+================================
+--> To resolve  Automatic Failover or Fault-Tolerance, Hadoop maintains
+    3 replicas of each block (default).
+--> In Cluster, if machine failed, still we can access hdfs filesystem.
+
+6. Data Locality Optimization:
+=============================
+--> Application instances are creates in data location.
+--> Data not moves application location, application instances are created in
+    data location.	
+	
+7. Heterogenous Cluster:
+=======================	
+--> You can take any hardware and any operating system for machines in 
+    cluster.
+--> It is not required to same operating system and same hardware for all 
+    machines.	
+
+8. Scalability:
+==============
+--> You can add or remove any no.of machines cluster without putting cluster 
+    in maintanance mode or without stopping cluster.
+--> There is no limit in hadoop cluster.
+--> Hadoop supports unlimited storage.	
+
+
+By
+Akkem Sreenivasulu
+www.cfamily.com 
+9133161144, 8919913398
+
+
+
+
+
+
+
+
+
+
+
+

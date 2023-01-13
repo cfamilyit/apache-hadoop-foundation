@@ -1,0 +1,43 @@
+						www.cfamily.com
+Hadoop Development
+==================
+Accessing Hadoop:-
+================
+Step1: Start|Stop|Verify Hadoop 
+-------------------------------
+a) To start Hadoop 
+$start-all.sh 
+
+b) To verify
+$jps 
+
+c) To Stop Hadoop 
+$stop-all.sh 
+
+Step2: Access NameNode Web User Interface
+-----------------------------------------
+--> In Linux, We use "firewall-cmd" to enable or disable required ports.
+--> We need to enable required port numbers
+--> hadoop 3.x
+9870 -- NameNode port 
+9866 -- DataNode 
+
+--> hadoop 2.x
+50070 -- NameNode
+50010 -- DataNode
+
+$ sudo firewall-cmd --zone=public --add-port=9870/tcp --permanent
+$ sudo firewall-cmd --zone=public --add-port=9868/tcp --permanent
+$ sudo firewall-cmd --zone=public --add-port=9866/tcp --permanent
+$ sudo firewall-cmd --zone=public --add-port=9864/tcp --permanent
+$ sudo firewall-cmd --zone=public --add-port=9000/tcp --permanent
+$ sudo firewall-cmd --reload
+
+Step3: Open Any web browser 
+---------------------------
+http://192.168.225.152:9870/
+
+
+By 
+Akkem Sreenivasulu
+www.cfamily.com

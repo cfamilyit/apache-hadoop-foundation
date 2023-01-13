@@ -1,0 +1,76 @@
+					www.cfamily.com
+Hadoop Development
+==================
+Hadoop Installation
+===================
+Hadoop Installation Types:-
+=========================
+--> There are 3ways to install hadoop. They are:
+1. Standalone/Local Mode
+2. pSudo Distribution Mode 
+3. Fully Distribution Mode 
+
+Standalone/Local Mode:-
+=====================
+--> All Daemons runs on Single Machine and on Single JVM.
+--> It uses Local Filesystem but not HDFS Filesystem.
+--> It is not Distributed.
+--> It is Only Development not for testing and not for production.
+--> Main Advantage of Standalone/Local Mode is Debugging purpose.
+
+pSudo Distribution Mode
+=======================
+--> In this mode all Daemons runs on Single Machine but on Multiple JVM's.
+--> It uses HDFS Filesystem.
+--> It is Distributed.
+--> It is for Development but not for Testing and not for Production purpose.
+
+Fully Distribution Mode
+=======================
+--> In this mode different deamons runs on different machines and different 
+    JVM's.
+--> It is uses HDFS Filesystem
+--> It is for Development, Testing and Production.
+--> It is Highly recomended to take all master daemons on separate machines
+    both worker daemons on same machines, we will take multiple works.
+
+Hadoop Installation Introduction
+================================
+Note:- Operating System should be installed.
+--> There are 3 steps involves in Hadoop Installation
+1. Pre-Installation Steps.
+2. Installation Steps.
+3. Post-Installation Steps.
+
+Pre-Installation Steps:-
+======================
+1) We Install Java (Recomended is Java 8)
+2) Passwordless SSH
+
+Installation Steps:-
+=================
+1) We will Install Hadoop 
+2) We will set HADOOP_HOME and PATH variable
+3) We will verify Hadoop is installed or not 
+
+Post-Installation Steps:-
+=======================
+1. Confiuring Hadoop configuration files
+2. We will Format NameNode
+
+	
+By
+Akkem Sreenivasulu
+www.cfamily.com
+
+
+
+
+
+
+
+
+
+
+
+

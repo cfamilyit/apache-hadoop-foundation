@@ -1,0 +1,153 @@
+					www.cfamily.com
+Hadoop Development
+==================
+Hadoop Installation
+===================
+Hadoop Single Node Installation
+===============================
+Standalone Mode/Local Mode & pSudo Distribution Mode:
+====================================================
+Note:-
+----
+--> Operating System should be installed 
+--> We have already created Virtual Machine with CentOS 7
+--> We have users 
+user1:
+un:root 
+pwd:cfamily 
+
+user2:
+un:cfamily   (sudoer user)
+pwd:cfamily 
+
+--> There are Three Steps Involves in Hadoop Standalone/Local Mode or 
+    pSudo Distribution Mode Installation.They are:
+1. Pre-Installation Steps 
+   a) Install Java (Recomended is Java 8)
+   b) Setup Passwordless SSH 
+2. Installation Steps 
+   a) Download Latest Hadoop 
+   b) Install Hadoop 
+   c) Set HADOOP_HOME and PATH Variable
+   d) Verify Hadoop is installed or    
+Once Step1 and Step2 Completed we can say "Standalone/Local Mode" 
+installation is completed.
+
+3. Post-Installation Steps 
+   a) Confuration
+      core-site.xml 
+	  hdfs-site.xml
+	  mapred-site.xml 
+	  yarn-site.xml 
+    b) format NameNode
+Step 1,2,3 is completed then we can "pSudo Distribution Mode" is completed.	
+
+Step1: Pre-Installation Steps 
+=============================
+1) Install Java (Recomended is Java 8)
+2) Setup Passwordless SSH 
+
+Install Java(Recomended is Java 8)
+----------------------------------
+1) Download Java 8 .rpm file 
+2) Install Java 8
+3) Set JAVA_HOME and PATH variable 
+4) Verify Java is Installed or not 
+
+Download Java 8 .rpm file
+-------------------------
+$cd /opt
+$sudo wget -c --header "Cookie: oraclelicense=accept-securebackup-cookie" http://download.oracle.com/otn-pub/java/jdk/8u131-b11/d54c1d3a095b4ff2b6607d096fa80163/jdk-8u131-linux-x64.rpm 
+
+Install Java 8
+==============
+$cd /opt 
+$sudo yum install rpm_file 
+$sudo yum install jdk-8u131-linux-x64.rpm -y
+
+Installation path: /usr/java/jdk1.8.0_131
+
+Set JAVA_HOME and PATH variable:-
+================================
+Why JAVA_HOME?
+-------------
+--> Many software which implmented using Java refers JAVA_HOME to their 
+softwares like maven,hadoop, gradle, etc..
+
+JAVA_HOME = /usr/java/jdk1.8.0_131
+
+Why PATH?
+--------
+JAVA_HOME\bin contain java commands to make all those commands available 
+anywhere in our system.
+
+PATH = /usr/java/jdk1.8.0_131/bin 
+
+Where do we set JAVA_HOME and PATH variable?
+--------------------------------------------
+--> In Linux or Unix for every user there are some profile file like 
+    .bashrc, .bash_profile etc.
+$sudo nano ~/.bashrc 
+#JAVA_HOME
+export JAVA_HOME=/usr/java/jdk1.8.0_131
+export PATH=$PATH:$JAVA_HOME/bin 
+
+restart .bashrc file 
+--------------------
+$source ~/.bashrc
+
+Verify Java is Installed or not:-
+-------------------------------
+$java -version 
+$java 
+$javac 
+	
+
+Setup Passwordless SSH:-
+======================
+--> SSH -- Secure Shell
+--> By using SSH we can get any linux machine shell.
+--> SSH requires password
+    un:
+	pwd:
+Why we are setuping Passwordless SSH?
+-------------------------------------	
+--> Sometimes One  Master Daemon communicates with other other Master Daemon
+--> Master Daemons Communicates with Worker Daemons
+--> Slave/Worker Daemons communicates with Master Daemons
+
+--> In all Above situations Master/Worker Daemons uses SSH
+--> To make all daemons can communicate with each other without pssword.
+
+SSH with Password:
+-----------------
+$ ssh localhost
+cfamily@localhost's password:
+[cfamily@cfamily ~]$ exit
+
+Passwordless Configuration:
+--------------------------
+$ssh-keygen -t rsa
+$sudo cat ~/.ssh/id_rsa.pub >> ~/.ssh/authorized_keys
+$sudo chmod og-wx ~/.ssh/authorized_keys
+
+verify:
+------
+$ ssh localhost
+Last login: Thu Jun 11 09:18:03 2020 from localhost
+[cfamily@cfamily ~]$ exit
+
+
+By
+Akkem Sreenivasulu
+www.cfamily.com
+
+
+
+
+
+
+
+
+
+
